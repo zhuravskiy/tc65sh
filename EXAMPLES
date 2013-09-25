@@ -1,0 +1,10 @@
+dir
+mkdir sample
+cd sample
+dir
+put test.txt
+cat test.txt
+dir
+at^scfg?
+dir
+cat test.txt

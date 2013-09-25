@@ -1,0 +1,36 @@
+
+------------------------------------------------------------------------------
+v1.0.0 (2011-01-10)
+------------------------------------------------------------------------------
+- first release
+
+------------------------------------------------------------------------------
+v1.1.0 (2011-01-17)
+------------------------------------------------------------------------------
+- fixed a bug in large file put/get/cat operations
+- put command: deviceFilename is now optional (defaults to filename of 
+  localFilepath)
+- get command: localFilepath is now optional (defaults to deviceFilename)
+- reduced sleeptime to speed up large file transfers
+- tested on linux (debian 5.0 lenny)
+- added --flowcontrol commandline parameter (needed for linux)
+- added sleep command (useful for scripting)
+- added --wait commandline parameter (wait for modem to become ready)
+
+------------------------------------------------------------------------------
+v1.2.0 (2011-01-18)
+------------------------------------------------------------------------------
+- added AT command support (look at sample cmd.txt to see how it's done)
+
+
+------------------------------------------------------------------------------
+v1.3.0 (2011-01-22)
+------------------------------------------------------------------------------
+- added command line switches (-at and -ot) for AT and OBEX command timeouts
+
+------------------------------------------------------------------------------
+v1.4.0 (2011-09-02)
+------------------------------------------------------------------------------
+- added 'getd' command provided by Thomas Martinec 
+- when device inited, obex mode is forcefully opened (some devices need this)
+  

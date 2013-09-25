@@ -1,0 +1,95 @@
+
+
+This is the README file for TC65SH, a java program for 
+communicating with a Siemens/Cinterion TC65 or TC65i 
+device. TC65SH can be used on Windows (tested on Windows 7), 
+Linux (not tested) and MAC OS (not tested).
+
+Features
+===========================================================
+ * navigate and list the folder structure in the device
+ * upload/download/delete files to/from the device
+ * completely erase the device filesystem
+ * interactive mode (like a unix shell) 
+ * batch mode (for scripting) 
+ * remote mode (via telnet) 
+  
+  
+Dependencies
+===========================================================
+Java SE 6 must be installed on your machine to run TC65SH.
+For device communication, tc65sh needs RXTXComm serial port 
+implementation. See rxtx.qbang.org for download and 
+installation instructions.
+
+
+Running interactive mode
+===========================================================
+Extract the binary distribution in a new folder, open a 
+command prompt in that folder and run:
+
+  java -cp tc65sh.jar org.tc65sh.Main -p COM1
+  
+If the name of the serial port is not "COM1" on your 
+system, please adjust the portname accordingly.
+The given command should connect to the device and
+start an interactive session. Type 'help' to get a 
+list of available commands.
+
+
+Running batch mode
+===========================================================
+TC65SH can read commands from a command file or from an 
+command line argument. A command File is specified by the 
+'-f' option:
+  java -cp tc65sh.jar org.tc65sh.Main -p COM1 -f bla.txt 
+Commands can also be specified on the command line, 
+use the '-c' option and separate commands by semicolon:
+  java -cp tc65sh.jar org.tc65sh.Main -p COM1 -c "mkdir app; cd app; cd aa; put test.txt test.txt"
+
+
+Running remote mode
+===========================================================
+TC65SH can read commands from a telnet connection. Start 
+TC65SH with the '-t' option:
+  java -cp tc65sh.jar org.tc65sh.Main -p COM1 -t 23
+Port 23 is the standard telnet port. 
+Now open a telnet client and connect to the host
+where TC65SH is running. To end the telnet session, simply
+close the telnet client. To end the telnet session and make
+TC65SH disconnect from the device type 'exit'.
+
+
+Known Problems
+===========================================================
+If TC65SH aborts abnormally, the device is left in 
+'data mode' and does not answer to AT commands any more.
+Solution: Reboot the device (power off and on again)
+
+If you find any bugs, please report them to 
+vilsmeier@gmx.de
+
+
+License
+===========================================================
+TC65SH is licensed by LGPL v3, please read the LICENSE file 
+included in the distribution.
+
+
+Release History
+===========================================================
+see CHANGELOG for release history
+
+
+Authors
+===========================================================
+Christoph Vilsmeier, vilsmeier@gmx.de
+
+This project was inspired by the project JOBEXFTP by 
+Ricardo Guilherme Schmidt <ricardo@lhf.ind.br>:
+https://github.com/3esmit/JObexFTP
+
+The TC65 module used for initial development was kindly 
+provided by comron GmbH (www.comron.de).
+
+
